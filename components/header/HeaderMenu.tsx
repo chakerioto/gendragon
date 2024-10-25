@@ -6,7 +6,7 @@ import React from 'react'
 const HeaderMenu = () => {
     const pathName = usePathname();
 
-    const isAppPage = pathName === "/gdragon"
+    const isAppPage = pathName.includes("/gdragon")
 
 
     return (
