@@ -1,6 +1,4 @@
 import Image from 'next/image';
-import React from 'react';
-import GodCoin1 from '../UI/GodCoin1';
 import Point from '../gdragon/Point';
 
 const RewardCard = ({ title, reward, isCompleted }: any) => {
@@ -14,8 +12,9 @@ const RewardCard = ({ title, reward, isCompleted }: any) => {
                 <p className="text-white font-[700]">{title}</p>
                 <div className='w-full p-2'>
                     <p className='text-[14px] text-[#818181] text-center flex items-center gap-1'>
-                        Reward: <span className="text-[#FFB422]"><Point hideGod /></span>
+                        Reward: <span className="text-[#FFB422]"></span>
                     </p>
+                    <Point hideGod />
                 </div>
                 <button
                     className={`px-10 text-[12px] font-[700] rounded-[40px] border-solid border-[1px] cursor-pointer py-2 border-white ${isCompleted

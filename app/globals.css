@@ -25,3 +25,41 @@ body {
 .wildworld {
   font-family: "wildworld", sans-serif; /* fallback font */
 }
+
+.gradient-background {
+  background: 
+    linear-gradient(0deg, #101010, #101010),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 28.33%, rgba(0, 0, 0, 0.7) 100%);
+  background-size: cover; /* Ensures the background covers the entire element */
+  background-blend-mode: overlay; /* Optional: blends the gradients together */
+}
+
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px; /* Width of the vertical scrollbar */
+  height: 5px; /* Height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the scrollbar track */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin; /* Use 'thin' for thin scrollbars */
+  scrollbar-color: gray transparent; /* Thumb color and track color */
+}
+
+/* Optional: Additional styles for Firefox */
+@supports (-moz-appearance: none) {
+  *::-webkit-scrollbar {
+    display: none; /* Hides the default scrollbar for Firefox */
+  }
+}
