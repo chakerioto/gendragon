@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import "./globals.css";
 
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
+import Script from "next/script";
+import Providers from "./prodiver/providers";
 
 
 const mainFont = Plus_Jakarta_Sans({ subsets: ['latin'] })
@@ -20,16 +20,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive" />
+        <Script
+          src="https://telegram.org/js/telegram-widget.js?22"
+          strategy="afterInteractive"
+          id="telegram-widget-script"
+        />
+      </head>
       <body
         className={`${mainFont.className}`}
       >
-        <div className=" min-h-screen w-screen flex flex-col ">
-          <Header />
-          <div className="flex-1 bg-black">
-            {children}
-          </div>
-          <Footer />
-        </div>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

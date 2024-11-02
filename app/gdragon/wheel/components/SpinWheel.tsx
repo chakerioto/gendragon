@@ -3,10 +3,21 @@
 import React, { useState } from 'react'
 import StartButton from './StartButton'
 import LuckyWheel from './LuckyWheel'
+import { dragonAPI } from '@/app/api/axios'
 
 const SpinWheel = () => {
   const [isSpin, setIsSpin] = useState(false)
   const [spinResult, setSpinResult] = useState<null | number>(null)
+
+
+  const onCallBackendSpin = async () => {
+    try {
+      const res = await dragonAPI.post('/api/spins/')
+      console.log(res)
+    } catch (error) {
+
+    }
+  }
 
 
   const onStartSpin = async () => {
@@ -14,11 +25,7 @@ const SpinWheel = () => {
 
     try {
       setIsSpin(true)
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve("Success!");
-        }, 1000); // 1000 milliseconds = 1 second
-      });
+      await onCallBackendSpin()
       //fake 180
       const randomInteger = Math.floor(Math.random() * 100) + 1;
       const result = randomInteger

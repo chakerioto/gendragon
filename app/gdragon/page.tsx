@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
 import React from 'react'
+import { useAuth } from '../hooks/useAuth'
 
 const AppPage = () => {
     const router = useRouter()
@@ -9,6 +10,12 @@ const AppPage = () => {
     console.log(pathName, 'pathName')
     console.log(router, 'router')
     console.log(router, 'router')
+
+
+    const auth = useAuth()
+
+
+    console.log(auth, 'auth frome home')
 
     return (
         <div>
